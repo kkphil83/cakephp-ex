@@ -1,4 +1,4 @@
-<?php
+/**<?php
 /**
  * The Front Controller for handling every request
  *
@@ -13,7 +13,7 @@
  * @link          https://cakephp.org CakePHP(tm) Project
  * @since         0.2.9
  * @license       MIT License (https://opensource.org/licenses/mit-license.php)
- */
+ 
 
 // Check platform requirements
 require dirname(__DIR__) . '/config/requirements.php';
@@ -38,3 +38,31 @@ $server = new Server(new Application(dirname(__DIR__) . '/config'));
 
 // Run the request/response through the application and emit the response.
 $server->emit($server->run());
+*/
+
+<?php
+ 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+ 
+$url = "https://el-dev-app-app-dev.apps.ocp4.*****.com/";
+$data = array(
+    'empty' => array()
+);
+ 
+$options = array(
+  'http' => array(
+    'method'  => 'POST',
+    'content' => json_encode( $data ),
+    'header'=>  "Content-Type: application/json\r\n"
+    )
+);
+ 
+$context  = stream_context_create( $options );
+$result = file_get_contents( $url, false, $context );
+$response = json_decode( $result );
+ 
+echo "Pipeline Start\n";
+ 
+?>
