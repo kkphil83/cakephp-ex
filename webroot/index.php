@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
  
-$url = "https://el-petclinic-cicd-1.apps.cluster-mp6pm.mp6pm.sandbox1585.opentlc.com/";
+$url = "https://el-petclinic-cicd-slack.apps.cluster-mp6pm.mp6pm.sandbox1585.opentlc.com/";
 $data = array(
     'empty' => array()
 );
